@@ -6,13 +6,13 @@ namespace Core_Proje.ViewComponents.Portfolio
 {
     public class PortfolioList : ViewComponent
     {
-       
 
+        PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
 
         public IViewComponentResult Invoke()
         {
-            
-            return View();
+            var values = portfolioManager.TgetList();
+            return View(values);
         }
     }
 }
